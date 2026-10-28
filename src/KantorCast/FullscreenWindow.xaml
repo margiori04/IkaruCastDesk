@@ -1,0 +1,26 @@
+<Window x:Class="IkaruCast.FullscreenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ikaru CastDesk Fullscreen"
+        WindowStyle="None" ResizeMode="NoResize"
+        Background="Black" Topmost="True"
+        KeyDown="Window_KeyDown"
+        MouseDoubleClick="Window_MouseDoubleClick">
+  <Grid x:Name="Host" Background="Black" ClipToBounds="True"
+        IsManipulationEnabled="True"
+        ManipulationDelta="Host_ManipulationDelta"
+        MouseWheel="Host_MouseWheel">
+    <Image x:Name="VideoImage" Stretch="Uniform" RenderTransformOrigin="0.5,0.5">
+      <Image.RenderTransform>
+        <TransformGroup>
+          <ScaleTransform x:Name="VideoScale" ScaleX="1" ScaleY="1"/>
+          <TranslateTransform x:Name="VideoTranslate"/>
+        </TransformGroup>
+      </Image.RenderTransform>
+    </Image>
+    <TextBlock Text="Esc / double-click: keluar  ·  pinch/scroll: zoom"
+               Foreground="#88FFFFFF" FontSize="12"
+               HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,16"
+               IsHitTestVisible="False"/>
+  </Grid>
+</Window>
